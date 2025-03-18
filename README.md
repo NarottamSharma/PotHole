@@ -1,6 +1,6 @@
 # 🚀 Pothole Detection with YOLOv11 
-### 🏆 Real-time Pothole Detection Using YOLOv8 and OpenCV  
-![GitHub stars](https://img.shields.io/github/stars/your-repo) ![GitHub forks](https://img.shields.io/github/forks/your-repo) ![GitHub last commit](https://img.shields.io/github/last-commit/your-repo)  
+### 🏆 Real-time Pothole Detection Using YOLOv11 and OpenCV  
+![GitHub stars](https://img.shields.io/github/stars/your-repo) ![GitHub forks](https://img.shields.io/github/forks/NarottamSharma/PotHole) ![GitHub last commit](https://img.shields.io/github/last-commit/NarottamSharma/PotHole)  
 
 ---
 
