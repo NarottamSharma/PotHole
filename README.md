@@ -26,42 +26,6 @@ This project implements a **YOLOv8-based pothole detection** system capable of p
 ✔️ Clean and modular code structure  
 ✔️ Jupyter notebook for experimentation  
 
----
-
-## 🏗️ Project Structure  
-```plaintext
-pothole-detection-yolo11/
-├── data/
-│   ├── images/              # Raw images
-│   ├── labels/              # YOLO-format labels
-│   ├── data.yaml            # Dataset config
-├── models/
-│   ├── yolo11n.pt           # Pre-trained model
-│   └── best.pt              # Trained model (after training)
-├── src/
-│   ├── train.py             # Training script
-│   ├── detect.py            # Inference on images
-│   ├── real_time.py         # Real-time detection script
-├── notebooks/
-│   └── experiment.ipynb     # Jupyter notebook for experimentation
-├── requirements.txt         # Package dependencies
-├── README.md                # Project documentation
-
-
-## 🚀 Installation  
-### 1. **Clone the Repository**  
-```bash
-git clone https://github.com/NarottamSharma/PotHole.git  
-cd pothole-detection-yolo11
-
-
-### 2. **Create a Virtual Environment**  
-```bash
-python -m venv venv  
-# Activate virtual environment  
-source venv/bin/activate  # Linux/Mac  
-venv\Scripts\activate     # Windows
-
 ```markdown
 # 🚀 Pothole Detection using YOLOv8
 
@@ -244,7 +208,7 @@ cv2.destroyAllWindows()
 ## 🖼️ **Sample Outputs**
 | Input Frame | Detected Output |
 |------------|-----------------|
-| ![Sample Input](data/images/sample.jpg) | ![Sample Output](data/images/output.jpg) |
+| ![Sample Input](pothole-detection-yolo11/data/test/images/146_jpg.rf.0338fc3f1b246e5f34d069dd932e95c0.jpg) | ![Sample Output](pothole-detection-yolo11/src/runs/detect/predict2/146_jpg.rf.0338fc3f1b246e5f34d069dd932e95c0.jpg) |
 
 ---
 
@@ -263,9 +227,4 @@ Contributions are welcome! If you encounter issues, feel free to open an issue o
 ## 📝 **License**
 This project is licensed under the [MIT License](LICENSE).  
 ```
-
-This is a **complete README** in **code block format** — ready to be copied and used! 😎
-
-
-
 
