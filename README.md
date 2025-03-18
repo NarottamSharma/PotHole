@@ -55,7 +55,7 @@ pothole-detection-yolo11/
 
 ### 1. **Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/pothole-detection-yolo11.git  
+git clone https://github.com/NarottamSharma/PotHole.git
 cd pothole-detection-yolo11  
 ```
 
