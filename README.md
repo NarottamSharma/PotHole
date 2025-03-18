@@ -46,3 +46,23 @@ pothole-detection-yolo11/
 │   └── experiment.ipynb     # Jupyter notebook for experimentation
 ├── requirements.txt         # Package dependencies
 ├── README.md                # Project documentation
+
+
+## 🚀 Installation  
+### 1. **Clone the Repository**  
+```bash
+git clone https://github.com/NarottamSharma/PotHole.git  
+cd pothole-detection-yolo11
+
+
+### 2. **Create a Virtual Environment**  
+```bash
+python -m venv venv  
+# Activate virtual environment  
+source venv/bin/activate  # Linux/Mac  
+venv\Scripts\activate     # Windows  
+
+
+
+
+
