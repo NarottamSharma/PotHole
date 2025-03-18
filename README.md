@@ -11,7 +11,7 @@
 ---
 
 ## 🌟 About the Project  
-This project implements a **YOLOv8-based pothole detection** system capable of processing both images and videos, along with real-time detection using OpenCV.  
+This project implements a **YOLOv11-based pothole detection** system capable of processing both images and videos, along with real-time detection using OpenCV.  
 
 ✅ Real-time detection using YOLOv11 
 ✅ High accuracy with efficient inference  
