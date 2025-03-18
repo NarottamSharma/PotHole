@@ -1,0 +1,13 @@
+train: /workspaces/PotHole/pothole-detection-yolo11/data/train/images
+val: /workspaces/PotHole/pothole-detection-yolo11/data/valid/images
+test: /workspaces/PotHole/pothole-detection-yolo11/data/test/images
+
+nc: 1
+names: ['pothole']
+
+roboflow:
+  workspace: narottam-1rasd
+  project: pothole_detection-hfnqo-x8xsw
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/narottam-1rasd/pothole_detection-hfnqo-x8xsw/dataset/1
