@@ -12,11 +12,11 @@ def train():
         print(f"Model already trained. Found at '{MODEL_PATH}'. Skipping training.")
         return
     
-    model = YOLO('/workspaces/PotHole/pothole-detection-yolo11/models/yolo11n.pt')  # Load pre-trained model
+    model = YOLO('/workspaces/PotHole/pothole-detection-yolo11/models/yolo11n.pt')  
 
     # Train the model
     results = model.train(
-        data='../data/data.yaml',
+        data='/workspaces/PotHole/pothole-detection-yolo11/data/data.yaml',
         epochs=100,
         imgsz=640,
         batch=4,

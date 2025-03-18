@@ -5,7 +5,7 @@ import cv2
 model = YOLO('/workspaces/PotHole/pothole-detection-yolo11/models/best.pt')
 
 # Open the webcam
-cap = cv2.VideoCapture(1)  # 0 for default webcam
+cap = cv2.VideoCapture(0)  # 0 for default webcam
 
 if not cap.isOpened():
     print("Error: Could not open webcam.")

@@ -28,5 +28,5 @@ def detect(image_path):
     plt.show()
 
 if __name__ == "__main__":
-    img_path = '/workspaces/PotHole/pothole-detection-yolo11/data/test/images'
+    img_path = '/workspaces/PotHole/pothole-detection-yolo11/data/external_data/istockphoto-174662203-612x612.jpg'
     detect(img_path)

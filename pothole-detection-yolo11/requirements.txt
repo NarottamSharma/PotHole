@@ -1,6 +1,10 @@
 ultralytics
 torch
-opencv-python-headless
+opencv-python
 matplotlib
 pandas 
 numpy
+
+# Update package list and install system dependencies
+# sudo apt-get update
+# sudo apt-get install -y libgl1-mesa-glx libglib2.0-0

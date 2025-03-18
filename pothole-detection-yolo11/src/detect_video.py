@@ -77,6 +77,6 @@ def detect_video(video_path, output_path):
     print(f"Output saved to '{output_path}'.")
 
 if __name__ == "__main__":
-    video_path = '/workspaces/PotHole/video_2025-03-18_17-21-26.mp4'
-    output_path = 'pothole-detection-yolo11/data/videos/output/output.mp4'
+    video_path = '/workspaces/PotHole/pothole-detection-yolo11/data/external_data/video_2025-03-18_17-21-26.mp4'
+    output_path = '/workspaces/PotHole/pothole-detection-yolo11/videos/output.mp4'
     detect_video(video_path, output_path)
