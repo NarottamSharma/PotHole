@@ -4,6 +4,7 @@ opencv-python
 matplotlib
 pandas 
 numpy
+flask
 
 # Update package list and install system dependencies
 # sudo apt-get update

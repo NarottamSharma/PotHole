@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detection Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <h1 class="text-center">Detection Result</h1>
+    
+    <div class="text-center">
+        {% if filename.endswith('.mp4') %}
+            <video controls width="600">
+                <source src="{{ url_for('output_file', filename=filename) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% else %}
+            <img src="{{ url_for('output_file', filename=filename) }}" class="img-fluid" alt="Detected Image">
+        {% endif %}
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Upload</a>
+    </div>
+</div>
+
+</body>
+</html>
