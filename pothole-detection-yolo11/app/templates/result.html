@@ -2,29 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Detection Result</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #28a745, #38d39f);
+            border: none;
+            font-weight: bold;
+            transition: 0.3s;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #218838, #28a745);
+            transform: scale(1.05);
+        }
+
+        .btn-back {
+            width: 100%;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container py-5">
-    <h1 class="text-center">Detection Result</h1>
-    
-    <div class="text-center">
-        {% if filename.endswith('.mp4') %}
-            <video controls width="600">
-                <source src="{{ url_for('output_file', filename=filename) }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        {% else %}
-            <img src="{{ url_for('output_file', filename=filename) }}" class="img-fluid" alt="Detected Image">
-        {% endif %}
-    </div>
+<div class="container">
+    <div class="card">
+        <div class="card-header py-3">
+            <h3>🛣️ Detection Result</h3>
+        </div>
+        <div class="card-body text-center">
+            
+            {% if filename %}
+            
+                {% if filename.endswith('.mp4') or filename.endswith('.avi') or filename.endswith('.mov') %}
+                    <!-- Video Download Section -->
+                    <p class="mb-3">✅ Your video has been processed successfully! Click below to download:</p>
+                    <a href="{{ url_for('converted_video', filename=filename) }}" 
+                       class="btn btn-download mb-3" 
+                       download="{{ filename }}" 
+                       aria-label="Download Processed Video">
+                        <i class="fas fa-download"></i> Download Video
+                    </a>
+                {% else %}
+                    <!-- Centered Image Display Section -->
+                    <p class="mb-3">✅ Here is your processed image:</p>
+                    <div class="img-container">
+                        <img src="{{ url_for('static', filename='outputs/' + filename) }}" 
+                             alt="Processed Image" 
+                             class="img-fluid mb-3">
+                    </div>
+                    <a href="{{ url_for('static', filename='outputs/' + filename) }}" 
+                       class="btn btn-download mb-3" 
+                       download="{{ filename }}" 
+                       aria-label="Download Processed Image">
+                        <i class="fas fa-download"></i> Download Image
+                    </a>
+                {% endif %}
 
-    <div class="text-center mt-3">
-        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Upload</a>
+            {% else %}
+                <!-- Error Message -->
+                <p class="error-text">❌ No file found. Please try uploading again.</p>
+                <a href="{{ url_for('index') }}" class="btn btn-danger btn-back">🔄 Back to Upload</a>
+            {% endif %}
+        </div>
+        <div class="card-footer text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-back">🔄 Back to Upload</a>
+        </div>
     </div>
 </div>
 
 </body>
 </html>
+

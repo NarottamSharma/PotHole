@@ -2,30 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pothole Detection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .card {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            font-weight: bold;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .btn-upload {
+            background: linear-gradient(135deg, #28a745, #38d39f);
+            border: none;
+            font-weight: bold;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .btn-upload:hover {
+            background: linear-gradient(135deg, #218838, #28a745);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        /* Animation for better file upload experience */
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white mx-auto" href="#">🚗 Pothole Detection System</a>
+    </div>
+</nav>
 
 <div class="container py-5">
-    <h1 class="text-center">Pothole Detection using YOLOv11</h1>
+    <h2 class="text-center text-white mb-4">Detect Potholes with YOLOv11 & CNN</h2>
 
-    <!-- Image Upload -->
-    <form action="/detect/image" method="POST" enctype="multipart/form-data" class="mb-4">
-        <div class="input-group">
-            <input type="file" name="file" class="form-control" required>
-            <button type="submit" class="btn btn-success">Detect Image</button>
+    <!-- Image Upload Section -->
+    <div class="card mb-4">
+        <div class="card-header">📷 Upload an Image</div>
+        <div class="card-body text-center">
+            <form action="/detect/image" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="image-upload" class="form-control mb-3" accept="image/*" required>
+                <button type="submit" class="btn btn-upload w-100">
+                    <i class="fas fa-upload"></i> Detect Image
+                </button>
+            </form>
         </div>
-    </form>
+    </div>
 
-    <!-- Video Upload -->
-    <form action="/detect/video" method="POST" enctype="multipart/form-data">
-        <div class="input-group">
-            <input type="file" name="file" class="form-control" required>
-            <button type="submit" class="btn btn-success">Detect Video</button>
+    <!-- Video Upload Section -->
+    <div class="card">
+        <div class="card-header">🎥 Upload a Video</div>
+        <div class="card-body text-center">
+            <form action="/detect/video" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="video-upload" class="form-control mb-3" accept="video/*" required>
+                <button type="submit" class="btn btn-upload w-100">
+                    <i class="fas fa-upload"></i> Detect Video
+                </button>
+            </form>
+            <!-- Progress bar -->
+            <div class="progress mt-3 d-none" id="upload-progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                     aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
         </div>
-    </form>
+    </div>
 </div>
+
+<footer class="footer text-white bg-dark">
+    © 2025 Pothole Detection Project | Built with ❤️
+</footer>
+
+<script>
+    // Optional: Show progress bar when uploading
+    document.getElementById("video-upload").addEventListener("change", function () {
+        document.getElementById("upload-progress").classList.remove("d-none");
+        let progressBar = document.querySelector(".progress-bar");
+        let progress = 0;
+        let interval = setInterval(() => {
+            progress += 10;
+            progressBar.style.width = progress + "%";
+            progressBar.setAttribute("aria-valuenow", progress);
+            if (progress >= 100) clearInterval(interval);
+        }, 500);
+    });
+</script>
 
 </body>
 </html>
