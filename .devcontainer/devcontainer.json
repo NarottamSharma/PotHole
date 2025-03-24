@@ -1,16 +1,15 @@
 {
-    "name": "Flask YOLO App",
-    "image": "mcr.microsoft.com/devcontainers/python:3.9",
-    "features": {
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-    },
-    "postCreateCommand": "sudo apt update && sudo apt install -y ffmpeg libgl1-mesa-glx  && pip install -r pothole-detection-yolo11/requirements.txt",
-    "forwardPorts": [5000],
-    "portsAttributes": {
-      "5000": {
-        "label": "Flask App",
-        "onAutoForward": "openBrowser"
-      }
+  "name": "Flask YOLO App",
+  "image": "mcr.microsoft.com/devcontainers/python:3.9",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "sudo apt update && sudo apt install -y ffmpeg libgl1-mesa-glx  && pip install -r /workspaces/PotHole/pothole-detection-yolo11/requirement.txt",
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": {
+      "label": "Flask App",
+      "onAutoForward": "openBrowser"
     }
   }
-  
+}
